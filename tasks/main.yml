@@ -31,6 +31,10 @@
     dest: "{{ drush_path }}"
     state: link
 
+- name: Force install Console_Table for old Drush versions.
+  shell: >
+    sudo pear install Console_Table
+
 - name: Run drush to finish setting it up.
   command: "{{ drush_path }}"
   register: drush_result
